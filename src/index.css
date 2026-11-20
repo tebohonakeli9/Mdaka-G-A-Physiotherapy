@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-teal: #0FA896;
+    --color-teal-deep: #0B7F73;
+    --color-slate-teal: #12343B;
+    --color-mint-light: #E6FFFA;
+    --color-mint-soft: #CFF7F1;
+    --color-sunny: #FFC53D;
+  }
+
+  html {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #12343B;
+    background-color: #FFFFFF;
+    scroll-padding-top: 84px;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+}
+
+.hero-headline-type {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 800;
+  font-size: clamp(4.75rem, 18.5vw, 16rem);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 640px) {
+  .hero-headline-type {
+    font-size: clamp(6rem, 18vw, 16rem);
+  }
+}
+
+.hero-copy-clip {
+  clip-path: inset(50% 0 0 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+}

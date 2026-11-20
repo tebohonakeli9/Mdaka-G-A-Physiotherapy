@@ -1,0 +1,6 @@
+{
+  "name": "Mdaka G A Physiotherapy",
+  "description": "Physiotherapy practice in Bethal, Mpumalanga, South Africa, run by physiotherapist Miss Gugu Angely Mdaka.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
