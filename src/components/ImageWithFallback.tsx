@@ -15,7 +15,7 @@ export function ImageWithFallback({
   src,
   alt,
   className = 'h-full w-full object-cover',
-  wrapperClassName = 'relative overflow-hidden bg-gradient-to-br from-[#E6FFFA] to-[#CFF7F1]',
+  wrapperClassName = 'relative overflow-hidden bg-gradient-to-br from-[#E8F2FF] to-[#FFFFFF]',
   fallbackIcon = 'Activity',
   fallbackLabel,
   loading = 'lazy',
@@ -26,12 +26,12 @@ export function ImageWithFallback({
   return (
     <div className={wrapperClassName}>
       {showFallback ? (
-        <div className="flex h-full min-h-[180px] w-full flex-col items-center justify-center gap-3 bg-gradient-to-br from-[#E6FFFA] via-[#CFF7F1] to-[#B2EFE5] p-6 text-center text-[#0B7F73]">
-          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/80 shadow-sm">
-            <IconResolver name={fallbackIcon} className="h-7 w-7 text-[#0FA896]" />
+        <div className="flex h-full min-h-[180px] w-full flex-col items-center justify-center gap-3 bg-gradient-to-br from-[#E8F2FF] to-[#FFFFFF] p-6 text-center text-[#0A2A6B]">
+          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-sm">
+            <IconResolver name={fallbackIcon} className="h-7 w-7 text-[#1E5FD0]" />
           </div>
           {fallbackLabel ? (
-            <span className="text-sm font-medium text-[#0B7F73]">{fallbackLabel}</span>
+            <span className="text-sm font-medium text-[#0A2A6B]">{fallbackLabel}</span>
           ) : null}
         </div>
       ) : (

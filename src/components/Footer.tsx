@@ -1,6 +1,7 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Phone } from 'lucide-react';
+import { MessageCircle, Phone } from 'lucide-react';
 import { siteData } from '../data/siteData';
+import { buildWhatsAppUrl } from '../utils/siteHelpers';
 
 interface FooterProps {
   onScrollToSection: (sectionId: string) => void;
@@ -9,6 +10,7 @@ interface FooterProps {
 export function Footer({ onScrollToSection }: FooterProps) {
   const location = useLocation();
   const navigate = useNavigate();
+  const whatsappUrl = buildWhatsAppUrl(siteData.whatsappNumber);
 
   const handleLinkClick = (sectionId: string) => {
     if (location.pathname !== '/') {
@@ -19,10 +21,10 @@ export function Footer({ onScrollToSection }: FooterProps) {
   };
 
   return (
-    <footer className="border-t border-[#0FA896]/15 bg-[#E6FFFA]/60 text-[#12343B]">
+    <footer className="bg-[#0A2A6B] text-white">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
-          {/* Brand */}
+          {/* Brand with logo.png on a white rounded badge */}
           <div className="md:col-span-4">
             <a
               href="/#home"
@@ -30,27 +32,30 @@ export function Footer({ onScrollToSection }: FooterProps) {
                 e.preventDefault();
                 handleLinkClick('home');
               }}
-              className="inline-flex items-center gap-3 font-display text-lg font-bold text-[#0B7F73]"
+              className="inline-flex rounded-2xl bg-white px-4 py-2.5 shadow-sm transition-transform hover:scale-[1.02]"
+              aria-label={siteData.practiceName}
             >
-              <span
-                aria-hidden="true"
-                className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#0FA896] font-display text-base font-extrabold text-white shadow-xs"
-              >
-                M
-              </span>
-              <span>{siteData.practiceName}</span>
+              <img
+                src={siteData.logoImage}
+                alt={siteData.logoAlt}
+                className="h-12 w-auto object-contain"
+              />
             </a>
-            <p className="mt-3 text-sm leading-relaxed text-[#12343B]/80">
-              {siteData.practitioner} · {siteData.profession}
+            <p className="mt-4 font-display text-base font-bold text-white">
+              {siteData.practiceName}
             </p>
-            <p className="mt-1 text-sm text-[#12343B]/75">
-              {siteData.town} · {siteData.postalCode}
+            <p className="mt-1 text-sm text-white/85">
+              {siteData.practitionerTitle} · {siteData.practiceNumber}
+            </p>
+            <p className="mt-1 text-sm text-white/75">{siteData.town}</p>
+            <p className="mt-1 text-xs text-white/75">
+              Saturday: {siteData.saturdayVenueAddress}
             </p>
           </div>
 
           {/* Quick Links */}
           <div className="md:col-span-5">
-            <h2 className="font-display text-sm font-bold tracking-wide text-[#0B7F73]">
+            <h2 className="font-display text-sm font-bold tracking-wide text-[#E8F2FF]">
               Quick Links
             </h2>
             <ul className="mt-4 grid grid-cols-2 gap-x-6 gap-y-2.5 text-sm">
@@ -62,7 +67,7 @@ export function Footer({ onScrollToSection }: FooterProps) {
                       e.preventDefault();
                       handleLinkClick(item.id);
                     }}
-                    className="text-[#12343B]/85 transition-colors hover:text-[#0B7F73] hover:underline"
+                    className="text-white/85 transition-colors hover:text-white hover:underline"
                   >
                     {item.label}
                   </a>
@@ -71,7 +76,7 @@ export function Footer({ onScrollToSection }: FooterProps) {
               <li>
                 <Link
                   to="/privacy"
-                  className="text-[#12343B]/85 transition-colors hover:text-[#0B7F73] hover:underline"
+                  className="text-white/85 transition-colors hover:text-white hover:underline"
                 >
                   Privacy Policy
                 </Link>
@@ -81,34 +86,38 @@ export function Footer({ onScrollToSection }: FooterProps) {
 
           {/* Contact numbers */}
           <div className="md:col-span-3">
-            <h2 className="font-display text-sm font-bold tracking-wide text-[#0B7F73]">
-              Telephone
+            <h2 className="font-display text-sm font-bold tracking-wide text-[#E8F2FF]">
+              Contact
             </h2>
-            <ul className="mt-4 space-y-2.5 text-sm">
-              <li>
-                <a
-                  href={`tel:${siteData.phoneMobileTel}`}
-                  className="inline-flex items-center gap-2 font-medium text-[#12343B] transition-colors hover:text-[#0B7F73]"
-                >
-                  <Phone className="h-4 w-4 text-[#0FA896]" aria-hidden="true" />
-                  <span>{siteData.phoneMobileDisplay}</span>
-                </a>
-              </li>
+            <ul className="mt-4 space-y-3 text-sm">
+              {whatsappUrl && (
+                <li>
+                  <a
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 font-medium text-white transition-colors hover:text-[#E8F2FF]"
+                  >
+                    <MessageCircle className="h-4 w-4 text-[#E8F2FF]" aria-hidden="true" />
+                    <span>WhatsApp: {siteData.phoneWhatsappDisplay}</span>
+                  </a>
+                </li>
+              )}
               <li>
                 <a
                   href={`tel:${siteData.phoneLandlineTel}`}
-                  className="inline-flex items-center gap-2 font-medium text-[#12343B] transition-colors hover:text-[#0B7F73]"
+                  className="inline-flex items-center gap-2 font-medium text-white transition-colors hover:text-[#E8F2FF]"
                 >
-                  <Phone className="h-4 w-4 text-[#0FA896]" aria-hidden="true" />
-                  <span>{siteData.phoneLandlineDisplay}</span>
+                  <Phone className="h-4 w-4 text-[#E8F2FF]" aria-hidden="true" />
+                  <span>Landline: {siteData.phoneLandlineDisplay}</span>
                 </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col justify-between gap-3 border-t border-[#0FA896]/15 pt-6 text-xs text-[#12343B]/75 sm:flex-row sm:items-center sm:text-sm">
-          <p>{siteData.footer.copyright}</p>
+        <div className="mt-10 flex flex-col justify-between gap-3 border-t border-white/15 pt-6 text-xs text-white/75 sm:flex-row sm:items-center sm:text-sm">
+          <p>{siteData.footer.copyright} · {siteData.practiceNumber}</p>
           <p>{siteData.footer.disclaimer}</p>
         </div>
       </div>

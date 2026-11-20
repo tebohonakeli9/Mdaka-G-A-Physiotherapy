@@ -2,39 +2,36 @@
 
 @layer base {
   :root {
-    --color-teal: #0FA896;
-    --color-teal-deep: #0B7F73;
-    --color-slate-teal: #12343B;
-    --color-mint-light: #E6FFFA;
-    --color-mint-soft: #CFF7F1;
-    --color-sunny: #FFC53D;
+    --color-navy: #0A2A6B;
+    --color-royal: #1E5FD0;
+    --color-sky: #E8F2FF;
+    --color-yellow-badge: #FFE600;
+    --color-red-closed: #D40000;
   }
 
   html {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    color: #12343B;
+    color: #0A2A6B;
     background-color: #FFFFFF;
-    scroll-padding-top: 84px;
+    scroll-padding-top: 88px;
   }
 
   h1, h2, h3, h4, .font-display {
     font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  .font-script {
+    font-family: 'Dancing Script', cursive;
   }
 }
 
 .hero-headline-type {
   font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-weight: 800;
-  font-size: clamp(4.75rem, 18.5vw, 16rem);
+  font-size: clamp(6rem, 18vw, 16rem);
   line-height: 0.85;
   letter-spacing: -0.04em;
   text-transform: uppercase;
-}
-
-@media (min-width: 640px) {
-  .hero-headline-type {
-    font-size: clamp(6rem, 18vw, 16rem);
-  }
 }
 
 .hero-copy-clip {

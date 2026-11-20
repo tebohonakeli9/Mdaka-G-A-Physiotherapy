@@ -2,14 +2,22 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import type { TouchEvent } from 'react';
 import { ChevronLeft, ChevronRight, Expand, X } from 'lucide-react';
 import { siteData } from '../data/siteData';
-import { cycleGalleryIndex } from '../utils/siteHelpers';
+import { cycleGalleryIndex, hasFieldValue } from '../utils/siteHelpers';
 import { ImageWithFallback } from './ImageWithFallback';
 import { Reveal } from './Reveal';
 
+interface GalleryItem {
+  id: string;
+  src: string;
+  alt: string;
+  caption: string;
+  aspect?: string;
+}
+
 export function GallerySection() {
+  const items = (siteData.gallery.items ?? []) as GalleryItem[];
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const touchStartX = useRef<number | null>(null);
-  const items = siteData.gallery.items;
 
   const handleClose = useCallback(() => setActiveIndex(null), []);
 
@@ -42,6 +50,10 @@ export function GallerySection() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [activeIndex, handleClose, handlePrev, handleNext]);
 
+  if (!hasFieldValue(items)) {
+    return null;
+  }
+
   const handleTouchStart = (event: TouchEvent<HTMLDivElement>) => {
     touchStartX.current = event.changedTouches[0]?.clientX ?? null;
   };
@@ -64,23 +76,19 @@ export function GallerySection() {
   const activeItem = activeIndex !== null ? items[activeIndex] : null;
 
   return (
-    <section
-      id="gallery"
-      className="bg-gradient-to-b from-[#CFF7F1]/35 via-[#FFFFFF] to-[#FFFFFF] py-16 sm:py-24"
-    >
+    <section id="gallery" className="bg-white py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <div className="max-w-3xl">
-            <h2 className="font-display text-3xl font-extrabold tracking-tight text-[#0B7F73] sm:text-4xl">
+            <h2 className="font-display text-3xl font-extrabold tracking-tight text-[#0A2A6B] sm:text-4xl">
               {siteData.gallery.heading}
             </h2>
-            <p className="mt-3 text-base leading-relaxed text-[#12343B]/85 sm:text-lg">
+            <p className="mt-3 text-base leading-relaxed text-[#0A2A6B]/80 sm:text-lg">
               {siteData.gallery.intro}
             </p>
           </div>
         </Reveal>
 
-        {/* Masonry grid */}
         <div className="mt-10 columns-1 gap-4 space-y-4 sm:columns-2 lg:columns-4">
           {items.map((item, idx) => {
             const aspectClass =
@@ -96,7 +104,7 @@ export function GallerySection() {
                   type="button"
                   onClick={() => setActiveIndex(idx)}
                   aria-label={`Open gallery image: ${item.caption}`}
-                  className="group relative block w-full overflow-hidden rounded-2xl border border-[#0FA896]/15 bg-[#E6FFFA] text-left shadow-xs transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0FA896]"
+                  className="group relative block w-full overflow-hidden rounded-2xl border border-[#1E5FD0]/15 bg-[#E8F2FF] text-left shadow-xs transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
                 >
                   <ImageWithFallback
                     src={item.src}
@@ -107,13 +115,10 @@ export function GallerySection() {
                     className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
                   />
                   <div className="flex items-center justify-between gap-2 bg-white px-4 py-3">
-                    <span className="text-sm font-medium text-[#12343B]">
+                    <span className="text-sm font-medium text-[#0A2A6B]">
                       {item.caption}
                     </span>
-                    <Expand
-                      className="h-4 w-4 shrink-0 text-[#0FA896] transition-transform duration-200 group-hover:scale-110"
-                      aria-hidden="true"
-                    />
+                    <Expand className="h-4 w-4 shrink-0 text-[#1E5FD0]" aria-hidden="true" />
                   </div>
                 </button>
               </Reveal>
@@ -122,7 +127,6 @@ export function GallerySection() {
         </div>
       </div>
 
-      {/* Full-screen Lightbox */}
       {activeItem && activeIndex !== null && (
         <div
           role="dialog"
@@ -130,13 +134,13 @@ export function GallerySection() {
           aria-label={activeItem.caption}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
-          className="fixed inset-0 z-[70] flex items-center justify-center bg-[#0B2227]/90 p-4 backdrop-blur-xs"
+          className="fixed inset-0 z-[70] flex items-center justify-center bg-[#0A2A6B]/90 p-4 backdrop-blur-xs"
         >
           <button
             type="button"
             onClick={handleClose}
             aria-label="Close gallery lightbox"
-            className="absolute top-4 right-4 z-20 flex h-11 w-11 items-center justify-center rounded-2xl bg-white/15 text-white transition-colors hover:bg-white/25 focus-visible:outline-2 focus-visible:outline-white"
+            className="absolute top-4 right-4 z-20 flex h-11 w-11 items-center justify-center rounded-2xl bg-white/15 text-white hover:bg-white/25"
           >
             <X className="h-6 w-6" aria-hidden="true" />
           </button>
@@ -145,19 +149,19 @@ export function GallerySection() {
             type="button"
             onClick={handlePrev}
             aria-label="Previous gallery image"
-            className="absolute top-1/2 left-3 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-2xl bg-white/15 text-white transition-colors hover:bg-white/25 focus-visible:outline-2 focus-visible:outline-white sm:left-6"
+            className="absolute top-1/2 left-3 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-2xl bg-white/15 text-white hover:bg-white/25 sm:left-6"
           >
             <ChevronLeft className="h-6 w-6" aria-hidden="true" />
           </button>
 
           <div className="relative z-10 flex max-h-[88vh] w-full max-w-4xl flex-col items-center">
-            <div className="w-full overflow-hidden rounded-2xl bg-[#12343B] shadow-2xl">
+            <div className="w-full overflow-hidden rounded-2xl bg-[#0A2A6B] shadow-2xl">
               <ImageWithFallback
                 src={activeItem.src}
                 alt={activeItem.alt}
                 fallbackIcon="Activity"
                 fallbackLabel={activeItem.caption}
-                wrapperClassName="flex max-h-[72vh] w-full items-center justify-center bg-[#12343B]"
+                wrapperClassName="flex max-h-[72vh] w-full items-center justify-center bg-[#0A2A6B]"
                 className="max-h-[72vh] w-full object-contain"
               />
             </div>
@@ -173,7 +177,7 @@ export function GallerySection() {
             type="button"
             onClick={handleNext}
             aria-label="Next gallery image"
-            className="absolute top-1/2 right-3 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-2xl bg-white/15 text-white transition-colors hover:bg-white/25 focus-visible:outline-2 focus-visible:outline-white sm:right-6"
+            className="absolute top-1/2 right-3 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-2xl bg-white/15 text-white hover:bg-white/25 sm:right-6"
           >
             <ChevronRight className="h-6 w-6" aria-hidden="true" />
           </button>

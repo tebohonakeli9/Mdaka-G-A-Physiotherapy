@@ -15,15 +15,15 @@ export function FaqSection() {
   return (
     <section
       id="faq"
-      className="bg-gradient-to-b from-[#CFF7F1]/35 via-[#FFFFFF] to-[#FFFFFF] py-16 sm:py-24"
+      className="bg-gradient-to-b from-[#E8F2FF]/35 via-[#FFFFFF] to-[#FFFFFF] py-16 sm:py-24"
     >
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <div className="text-center">
-            <h2 className="font-display text-3xl font-extrabold tracking-tight text-[#0B7F73] sm:text-4xl">
+            <h2 className="font-display text-3xl font-extrabold tracking-tight text-[#0A2A6B] sm:text-4xl">
               {siteData.faq.heading}
             </h2>
-            <p className="mt-3 text-base leading-relaxed text-[#12343B]/85 sm:text-lg">
+            <p className="mt-3 text-base leading-relaxed text-[#0A2A6B]/80 sm:text-lg">
               {siteData.faq.intro}
             </p>
           </div>
@@ -37,7 +37,7 @@ export function FaqSection() {
 
             return (
               <Reveal key={item.question} delay={idx * 0.04}>
-                <div className="overflow-hidden rounded-2xl border border-[#0FA896]/20 bg-white shadow-xs transition-colors hover:border-[#0FA896]/40">
+                <div className="overflow-hidden rounded-2xl border border-[#1E5FD0]/20 bg-white shadow-[0_6px_18px_rgba(30,95,208,0.05)] transition-colors hover:border-[#1E5FD0]/40">
                   <h3>
                     <button
                       id={buttonId}
@@ -45,12 +45,12 @@ export function FaqSection() {
                       aria-expanded={isOpen}
                       aria-controls={panelId}
                       onClick={() => toggleItem(idx)}
-                      className="flex min-h-[56px] w-full items-center justify-between gap-4 px-6 py-4 text-left font-display text-base font-bold text-[#0B7F73] transition-colors hover:bg-[#E6FFFA]/50 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#0FA896] sm:text-lg"
+                      className="flex min-h-[56px] w-full items-center justify-between gap-4 px-6 py-4 text-left font-display text-base font-bold text-[#0A2A6B] transition-colors hover:bg-[#E8F2FF]/60 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#1E5FD0] sm:text-lg"
                     >
                       <span>{item.question}</span>
                       <ChevronDown
                         aria-hidden="true"
-                        className={`h-5 w-5 shrink-0 text-[#0FA896] transition-transform duration-200 ${
+                        className={`h-5 w-5 shrink-0 text-[#1E5FD0] transition-transform duration-200 ${
                           isOpen ? 'rotate-180' : ''
                         }`}
                       />
@@ -69,7 +69,7 @@ export function FaqSection() {
                         transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
                         className="overflow-hidden"
                       >
-                        <div className="border-t border-[#0FA896]/10 px-6 pt-3 pb-5 text-base leading-relaxed text-[#12343B]/85">
+                        <div className="border-t border-[#1E5FD0]/10 px-6 pt-3 pb-5 text-base leading-relaxed text-[#0A2A6B]/85">
                           {item.answer}
                         </div>
                       </motion.div>

@@ -3,32 +3,45 @@
 
 export const siteData = {
   practiceName: "Mdaka G A Physiotherapy",
-  practitioner: "Miss Gugu Angely Mdaka",
+  practitioner: "Gugu Mdaka",
+  practitionerTitle: "Gugu Mdaka, Physiotherapist",
   profession: "Physiotherapist",
-  town: "Bethal, Mpumalanga, South Africa",
-  postalCode: "2309",
-  municipality: "Govan Mbeki Local Municipality",
+  practiceNumber: "Pr. Nr 0491292",
+  town: "Bethal, Mpumalanga (RSA)",
+  postalCode: "2310",
 
-  phoneMobileDisplay: "076 232 5034",
-  phoneMobileTel: "+27762325034",
-  phoneLandlineDisplay: "017 647 6341",
-  phoneLandlineTel: "+27176476341",
+  logoImage: "/images/logo.png",
+  logoAlt: "Gugu Mdaka Physiotherapist logo",
+
+  phoneLandlineDisplay: "017 647 1161",
+  phoneLandlineTel: "+27176471161",
+  phoneWhatsappDisplay: "076 232 5034",
+  phoneWhatsappTel: "+27762325034",
   whatsappNumber: "27762325034",
-  mapQuery: "Bethal, 2309, Mpumalanga, South Africa",
 
-  // Unconfirmed fields — leave empty to keep completely hidden
+  saturdayVenueName: "Dr B Mosia",
+  saturdayVenueAddress: "Dr B Mosia, 22a Clerq Street, Bethal, 2310",
+  mapQuery: "22a Clerq Street, Bethal, 2310, South Africa",
+
+  // Empty fields stay hidden on the site
   streetAddress: "",
   email: "",
   facebookUrl: "",
-  medicalAid: "",
-  accessibility: [],
+
+  taglines: {
+    primary: "Move Better • Feel Better • Live Better",
+    priority: "Your Movement, Our Priority",
+    healing: "Movement Heals Lives",
+    pillars: "Health • Mobility • Independence",
+    cta: "Let's get you moving!",
+  },
 
   navigation: [
     { label: "Home", id: "home" },
     { label: "About", id: "about" },
     { label: "Services", id: "services" },
-    { label: "What to Expect", id: "what-to-expect" },
-    { label: "Gallery", id: "gallery" },
+    { label: "Hours", id: "hours" },
+    { label: "Physio@home", id: "physio-at-home" },
     { label: "Health Tips", id: "health-tips" },
     { label: "FAQ", id: "faq" },
     { label: "Contact", id: "contact" },
@@ -38,11 +51,13 @@ export const siteData = {
     topWord: "MDAKA",
     bottomWord: "PHYSIO",
     title: "Mdaka G A Physiotherapy",
-    subline: "Physiotherapy in Bethal, Mpumalanga.",
-    cutoutImage: "/images/hero-cutout.webp",
-    cutoutAlt: "Physiotherapist in teal clinical uniform",
-    primaryCtaLabel: "Call to Book an Appointment",
-    whatsappCtaLabel: "Book on WhatsApp",
+    practitionerLine: "Gugu Mdaka, Physiotherapist",
+    intro:
+      "Professional physiotherapy care to help you recover, regain function and live a healthier, more active life.",
+    cutoutImage: "/images/hero-cutout.png",
+    cutoutAlt: "Gugu Mdaka, Physiotherapist",
+    whatsappCtaLabel: "WhatsApp Us",
+    callCtaLabel: "Call Us",
     directionsCtaLabel: "Get Directions",
   },
 
@@ -50,62 +65,60 @@ export const siteData = {
     {
       id: "location",
       label: "Location",
-      value: "Bethal, Mpumalanga",
+      value: "Bethal, Mpumalanga (RSA)",
       icon: "MapPin",
       href: "#contact",
     },
     {
-      id: "phone",
-      label: "Telephone",
-      value: "Call: 076 232 5034",
+      id: "whatsapp",
+      label: "WhatsApp",
+      value: "076 232 5034",
+      icon: "MessageCircle",
+      href: "https://wa.me/27762325034",
+    },
+    {
+      id: "landline",
+      label: "Landline",
+      value: "017 647 1161",
       icon: "Phone",
-      href: "tel:+27762325034",
+      href: "tel:+27176471161",
     },
     {
-      id: "booking",
-      label: "Booking",
-      value: "Appointments by phone",
-      icon: "CalendarClock",
-      href: "#contact",
-    },
-    {
-      id: "practitioner",
-      label: "Practitioner",
-      value: "Physiotherapist: Miss Gugu Angely Mdaka",
-      icon: "UserCheck",
-      href: "#about",
+      id: "payment",
+      label: "Payment",
+      value: "Cash and medical aids accepted",
+      icon: "CreditCard",
+      href: "#hours",
     },
   ],
 
   about: {
     heading: "About the Practice",
     intro:
-      "Mdaka G A Physiotherapy is a physiotherapy practice in Bethal, Mpumalanga, run by physiotherapist Miss Gugu Angely Mdaka.",
+      "Professional physiotherapy care to help you recover, regain function and live a healthier, more active life.",
     paragraphs: [
-      "Physiotherapy focuses on how the body moves and functions. It uses physical assessment, guided movement, hands-on techniques, and structured exercise to help people manage discomfort, stiffness, or movement difficulties linked to daily activities, work, or recovery.",
-      "Care is tailored to each person's needs and comfort level. Every visit begins with listening carefully to your concerns, explaining what is observed during the assessment, and agreeing on practical steps for your sessions and home routine.",
+      "Led by Gugu Mdaka, Physiotherapist (Pr. Nr 0491292), Mdaka G A Physiotherapy serves patients in Bethal, Mpumalanga (RSA) with attentive, goal-oriented rehabilitation and physical care.",
+      "Sessions range from 30 minutes to 1 hour, giving you focused time for thorough assessment, guided treatment, and practical movement support.",
     ],
-    image: "/images/about.jpg",
-    imageAlt: "Bright and calm physiotherapy treatment space with natural daylight",
     values: [
       {
-        title: "Patient care",
-        description: "Respectful, attentive care centred around your comfort and individual goals.",
+        title: "Your Movement, Our Priority",
+        description: "Care focused on restoring comfortable, confident everyday movement.",
+        icon: "Activity",
+      },
+      {
+        title: "Movement Heals Lives",
+        description: "Structured physiotherapy techniques and exercise tailored to your needs.",
         icon: "HeartHandshake",
       },
       {
-        title: "Clear communication",
-        description: "Plain explanations of your assessment and each step of your session.",
-        icon: "MessageSquareText",
+        title: "Health • Mobility • Independence",
+        description: "Supporting recovery, joint function, and long-term daily independence.",
+        icon: "ShieldCheck",
       },
       {
-        title: "Comfort",
-        description: "A calm, welcoming environment where you can move without feeling rushed.",
-        icon: "Smile",
-      },
-      {
-        title: "Progress at your pace",
-        description: "Exercises and guidance adjusted sensibly as your body adapts over time.",
+        title: "Let's get you moving!",
+        description: "Cash and medical aids accepted, with sessions from 30 minutes to 1 hour.",
         icon: "Footprints",
       },
     ],
@@ -114,198 +127,132 @@ export const siteData = {
   services: {
     heading: "How Physiotherapy Can Help",
     intro:
-      "Physiotherapy supports everyday movement, strength, and comfort across a range of physical concerns.",
-    note: "Please call the practice to ask about the treatments offered.",
+      "Focused physiotherapy support for pain relief, rehabilitation, posture, and everyday mobility.",
+    checklistHeading: "Your Health is Our Priority",
     items: [
       {
-        id: "assessment",
-        title: "Physiotherapy assessment",
-        description: "A structured look at movement, joint range, and daily physical challenges.",
-        icon: "ClipboardCheck",
-        image: "",
-      },
-      {
         id: "back-neck",
-        title: "Back and neck pain",
-        description: "Support for stiffness, muscular tension, and discomfort in the spine.",
+        title: "Back & Neck Pain",
+        description: "Targeted care for spinal stiffness, muscular strain, and neck or back discomfort.",
         icon: "Activity",
-        image: "",
       },
       {
         id: "joint-muscle",
-        title: "Joint and muscle pain",
-        description: "Care aimed at easing movement around sore shoulders, knees, hips, and muscles.",
+        title: "Joint & Muscle Injuries",
+        description: "Assessment and rehabilitation for sprains, strains, and sore joints or muscles.",
         icon: "Accessibility",
-        image: "",
       },
       {
-        id: "sports-injuries",
-        title: "Sports and exercise injuries",
-        description: "Guidance for strains, sprains, and returning safely to physical activity.",
+        id: "sports-rehab",
+        title: "Sports Rehabilitation",
+        description: "Structured recovery programmes to help you return safely to sport and exercise.",
         icon: "Dumbbell",
-        image: "",
       },
       {
-        id: "rehabilitation",
-        title: "Rehabilitation after injury or surgery",
-        description: "Gradual, supervised movement work to rebuild confidence and function.",
+        id: "post-surgery",
+        title: "Post-Surgery Rehabilitation",
+        description: "Guided movement and strengthening after orthopaedic or surgical procedures.",
         icon: "ShieldCheck",
-        image: "",
       },
       {
-        id: "mobility-balance",
-        title: "Mobility and balance",
-        description: "Practical exercises to support steady walking and everyday independence.",
-        icon: "Move",
-        image: "",
-      },
-      {
-        id: "posture-advice",
-        title: "Posture and movement advice",
-        description: "Simple adjustments for sitting, standing, lifting, and daily work habits.",
+        id: "posture-ergonomics",
+        title: "Posture & Ergonomics",
+        description: "Practical posture guidance and workstation habits to reduce daily physical strain.",
         icon: "Compass",
-        image: "",
       },
       {
-        id: "exercise-programmes",
-        title: "Exercise programmes",
-        description: "Clear, manageable routines designed for you to practise between visits.",
-        icon: "ListChecks",
-        image: "",
+        id: "mobility-independence",
+        title: "General Mobility & Functional Independence",
+        description: "Exercise and balance work to support steady walking and daily independence.",
+        icon: "Move",
       },
     ],
+    checklist: [
+      "Pain relief",
+      "Injury rehabilitation",
+      "Musculoskeletal conditions",
+      "Post-surgical rehabilitation",
+      "Improved mobility & function",
+      "Better quality of life",
+    ],
+  },
+
+  operatingTimes: {
+    heading: "Operating Times",
+    intro: "Scheduled practice hours and weekday in-house calls in Bethal, Mpumalanga (RSA).",
+    inHouseBadge: "IN-HOUSE CALLS – Available on weekdays only (Monday – Friday)",
+    paymentHighlight: "Cash and medical aids accepted",
+    sessionDuration: "Sessions range from 30 minutes to 1 hour",
+    schedule: [
+      { day: "Monday", hours: "16:30 – 18:00", closed: false, note: "" },
+      { day: "Tuesday", hours: "16:30 – 17:30", closed: false, note: "" },
+      { day: "Wednesday", hours: "Closed", closed: true, note: "" },
+      { day: "Thursday", hours: "16:30 – 17:30", closed: false, note: "" },
+      { day: "Friday", hours: "Closed", closed: true, note: "" },
+      {
+        day: "Saturday",
+        hours: "09:00 – 12:00",
+        closed: false,
+        note: "Available at Dr B Mosia, 22a Clerq Street, Bethal 2310",
+      },
+    ],
+  },
+
+  physioAtHome: {
+    sectionHeading: "In-Home Visits",
+    brandTitle: "Physio@home",
+    intro: "Convenient physiotherapy visits delivered in the comfort of your own home.",
+    points: [
+      "In-home visits",
+      "Personalised care",
+      "Better movement, better living",
+    ],
+    ctaLabel: "WhatsApp to book a home visit",
+    whatsappPrefill:
+      "Hello, I would like to book a Physio@home in-home physiotherapy visit with Mdaka G A Physiotherapy.",
   },
 
   whatToExpect: {
     heading: "What to Expect",
-    intro: "A straightforward overview of how a typical visit and follow-up process works.",
+    intro: "A straightforward overview of your visit, from booking to follow-up.",
     steps: [
       {
         step: 1,
-        title: "Call to book",
+        title: "Book by WhatsApp or Phone",
         description:
-          "Phone the practice on 076 232 5034 or 017 647 6341 to arrange a suitable appointment time and ask any initial questions.",
+          "Message us on WhatsApp (076 232 5034) or call 017 647 1161 to arrange your clinic or weekday in-house visit.",
       },
       {
         step: 2,
-        title: "First visit and assessment",
+        title: "Assessment",
         description:
-          "Your physiotherapist discusses your health history, daily routine, and main concerns, then checks how you move.",
+          "We discuss your medical history, daily routine, and movement concerns during a thorough assessment.",
       },
       {
         step: 3,
-        title: "Treatment plan discussion",
+        title: "Clear Treatment Plan",
         description:
-          "Findings are explained in clear, everyday language so you understand what is planned before starting.",
+          "Findings and goals are explained clearly so you know what each session involves.",
       },
       {
         step: 4,
-        title: "Treatment sessions",
+        title: "Focused Session (30 min – 1 hr)",
         description:
-          "Sessions combine appropriate physiotherapy techniques and guided exercises at a pace that suits your comfort.",
+          "Sessions range from 30 minutes to 1 hour, combining appropriate treatment and guided movement.",
       },
       {
         step: 5,
-        title: "Home exercises and follow-up",
+        title: "Home Routine & Follow-Up",
         description:
-          "You receive practical movement guidance to continue at home, with follow-up visits arranged as needed.",
-      },
-    ],
-  },
-
-  whyVisitUs: {
-    heading: "Why Visit Us",
-    intro: "Practical, attentive physiotherapy care available right in your community.",
-    items: [
-      {
-        title: "Local practice in Bethal",
-        description:
-          "Conveniently situated in Bethal within the Govan Mbeki Local Municipality, Mpumalanga.",
-        icon: "MapPin",
-      },
-      {
-        title: "One-on-one attention",
-        description:
-          "Dedicated appointment time focused on listening to your needs and guiding your movement.",
-        icon: "UserCheck",
-      },
-      {
-        title: "Clear explanations",
-        description:
-          "Straightforward, jargon-free guidance so you know what each assessment and exercise involves.",
-        icon: "BookOpenCheck",
-      },
-      {
-        title: "Easy to reach by phone",
-        description:
-          "Reach the practice directly on mobile or landline to enquire about availability and appointments.",
-        icon: "PhoneCall",
+          "Receive practical exercises to continue between visits as you build better movement and independence.",
       },
     ],
   },
 
   gallery: {
-    heading: "Moving Well",
-    intro:
-      "Visual themes representing gentle movement, mobility, stretching, and balanced daily activity.",
-    items: [
-      {
-        id: "gal-1",
-        src: "/images/gallery-1.jpg",
-        alt: "Person performing guided upper back and shoulder stretching",
-        caption: "Movement and recovery",
-        aspect: "landscape",
-      },
-      {
-        id: "gal-2",
-        src: "/images/gallery-2.jpg",
-        alt: "Person practising single-leg balance stability exercise",
-        caption: "Balance and mobility",
-        aspect: "portrait",
-      },
-      {
-        id: "gal-3",
-        src: "/images/gallery-3.jpg",
-        alt: "Seated knee mobility exercise with a resistance band",
-        caption: "Stretching and strength",
-        aspect: "landscape",
-      },
-      {
-        id: "gal-4",
-        src: "/images/gallery-4.jpg",
-        alt: "Mindful upright posture and neck alignment practice",
-        caption: "Posture and alignment",
-        aspect: "portrait",
-      },
-      {
-        id: "gal-5",
-        src: "/images/gallery-5.jpg",
-        alt: "Exercise mat, resistance bands, and light weights in daylight",
-        caption: "Everyday movement tools",
-        aspect: "landscape",
-      },
-      {
-        id: "gal-6",
-        src: "/images/gallery-6.jpg",
-        alt: "Active adult walking steadily with upright posture",
-        caption: "Steady everyday walking",
-        aspect: "portrait",
-      },
-      {
-        id: "gal-7",
-        src: "/images/gallery-7.jpg",
-        alt: "Gentle wrist and forearm mobility stretch on a wooden table",
-        caption: "Gentle joint mobility",
-        aspect: "landscape",
-      },
-      {
-        id: "gal-8",
-        src: "/images/gallery-8.jpg",
-        alt: "Restorative lower back stretching on an exercise mat",
-        caption: "Restorative stretching",
-        aspect: "square",
-      },
-    ],
+    heading: "",
+    intro: "",
+    items: [],
   },
 
   healthTips: {
@@ -354,46 +301,48 @@ export const siteData = {
 
   faq: {
     heading: "Frequently Asked Questions",
-    intro: "Answers to common questions before calling to arrange your appointment.",
+    intro: "Answers to common questions about appointments, hours, and payment.",
     items: [
       {
         question: "How do I book an appointment?",
-        answer: "Call the practice on 076 232 5034 or 017 647 6341.",
-      },
-      {
-        question: "What should I bring?",
         answer:
-          "Comfortable clothing and any relevant medical information. Please call the practice to confirm.",
+          "Send a WhatsApp message to 076 232 5034 or call the landline on 017 647 1161.",
       },
       {
-        question: "Do you accept medical aid?",
-        answer: "Please call the practice to ask.",
+        question: "What are your operating hours?",
+        answer:
+          "Monday 16:30 – 18:00, Tuesday 16:30 – 17:30, Wednesday Closed, Thursday 16:30 – 17:30, Friday Closed, and Saturday 09:00 – 12:00 at Dr B Mosia, 22a Clerq Street, Bethal 2310. In-house calls are available on weekdays only (Monday – Friday).",
       },
       {
-        question: "How long is a session?",
-        answer: "Please call the practice to ask.",
+        question: "Where are Saturday appointments held?",
+        answer:
+          "Saturday sessions (09:00 – 12:00) are available at Dr B Mosia, 22a Clerq Street, Bethal, 2310.",
       },
       {
-        question: "What are your opening hours?",
-        answer: "Please call the practice to confirm opening hours and book your appointment.",
+        question: "Do you accept medical aid and cash?",
+        answer: "Yes, cash and medical aids are accepted.",
       },
       {
-        question: "Where is the practice?",
-        answer: "Bethal, Mpumalanga, 2309.",
+        question: "How long is a physiotherapy session?",
+        answer: "Sessions range from 30 minutes to 1 hour.",
+      },
+      {
+        question: "Do you offer in-home visits?",
+        answer:
+          "Yes, Physio@home offers in-home visits and weekday in-house calls (Monday – Friday). Message us on WhatsApp at 076 232 5034 to book a home visit.",
       },
     ],
   },
 
   ctaBand: {
-    heading: "Ready to book? Call the practice today.",
-    subtext:
-      "Speak directly with the practice to ask questions or arrange a convenient time for your visit.",
+    heading: "Let's get you moving!",
+    subtext: "Your Movement, Our Priority — reach out by WhatsApp or phone to arrange your visit.",
   },
 
   contact: {
     heading: "Contact & Location",
     intro:
-      "Get in touch by phone to book an appointment, or send an enquiry message via WhatsApp.",
+      "Reach out on WhatsApp or call our landline to book an appointment, or send a quick request below.",
     formHeading: "Request an Appointment via WhatsApp",
     formNote: "Please do not send sensitive medical details through this form.",
     formThankYouTitle: "Thank you for your appointment request",
@@ -414,7 +363,7 @@ export const siteData = {
     sections: [
       {
         heading: "1. Who We Are",
-        body: "Mdaka G A Physiotherapy is a physiotherapy practice located in Bethal, Mpumalanga, South Africa (postal code 2309), run by physiotherapist Miss Gugu Angely Mdaka.",
+        body: "Mdaka G A Physiotherapy (Pr. Nr 0491292) is a physiotherapy practice in Bethal, Mpumalanga (RSA), run by Gugu Mdaka, Physiotherapist.",
       },
       {
         heading: "2. What Information the Contact Form Collects",
@@ -434,7 +383,7 @@ export const siteData = {
       },
       {
         heading: "6. Contact Us",
-        body: "If you have questions about this Privacy Policy or wish to update your details, please call the practice on 076 232 5034 or 017 647 6341.",
+        body: "If you have questions about this Privacy Policy or wish to update your details, please WhatsApp 076 232 5034 or call 017 647 1161.",
       },
     ],
   },

@@ -4,8 +4,9 @@ import { Hero } from '../components/Hero';
 import { QuickInfoStrip } from '../components/QuickInfoStrip';
 import { AboutSection } from '../components/AboutSection';
 import { ServicesSection } from '../components/ServicesSection';
+import { OperatingTimesSection } from '../components/OperatingTimesSection';
+import { PhysioAtHomeSection } from '../components/PhysioAtHomeSection';
 import { WhatToExpectSection } from '../components/WhatToExpectSection';
-import { WhyVisitSection } from '../components/WhyVisitSection';
 import { GallerySection } from '../components/GallerySection';
 import { HealthTipsSection } from '../components/HealthTipsSection';
 import { FaqSection } from '../components/FaqSection';
@@ -30,13 +31,14 @@ export function HomePage({ onScrollToSection }: HomePageProps) {
   }, [location.hash, onScrollToSection]);
 
   return (
-    <main>
+    <main className="pb-14 md:pb-0">
       <Hero />
       <QuickInfoStrip onScrollToSection={onScrollToSection} />
       <AboutSection />
       <ServicesSection />
+      <OperatingTimesSection />
+      <PhysioAtHomeSection />
       <WhatToExpectSection />
-      <WhyVisitSection />
       <GallerySection />
       <HealthTipsSection />
       <FaqSection />

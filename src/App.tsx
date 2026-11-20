@@ -53,7 +53,7 @@ function AppShell() {
   );
 
   return (
-    <div className="min-h-screen bg-white text-[#12343B]">
+    <div className="min-h-screen bg-white text-[#0A2A6B]">
       <Navbar onScrollToSection={scrollToSection} />
       <Routes>
         <Route path="/" element={<HomePage onScrollToSection={scrollToSection} />} />

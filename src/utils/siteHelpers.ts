@@ -43,16 +43,20 @@ export function buildGoogleMapsDirectionsUrl(mapQuery: string): string {
 }
 
 /**
- * Builds a clean WhatsApp deep link, optionally prefilling an appointment request message.
+ * Builds a clean WhatsApp deep link, optionally prefilling an appointment request or custom text.
  */
 export function buildWhatsAppUrl(
   whatsappNumber: string,
-  request?: AppointmentRequestInput
+  request?: AppointmentRequestInput | string
 ): string {
   const digits = whatsappNumber.replace(/\D/g, '');
   if (!digits) return '';
   if (!request) {
     return `https://wa.me/${digits}`;
+  }
+
+  if (typeof request === 'string') {
+    return `https://wa.me/${digits}?text=${encodeURIComponent(request)}`;
   }
 
   const lines = [
